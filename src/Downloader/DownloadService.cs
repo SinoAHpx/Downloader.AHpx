@@ -150,15 +150,6 @@ namespace Downloader
 
                 await StoreDownloadedFile(_globalCancellationTokenSource.Token).ConfigureAwait(false);
             }
-            catch (OperationCanceledException exp)
-            {
-                OnDownloadFileCompleted(new AsyncCompletedEventArgs(exp, true, Package));
-            }
-            catch (Exception exp)
-            {
-                OnDownloadFileCompleted(new AsyncCompletedEventArgs(exp, false, Package));
-                Debugger.Break();
-            }
             finally
             {
                 if (IsCancelled)
