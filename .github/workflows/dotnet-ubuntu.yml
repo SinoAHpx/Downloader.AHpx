@@ -55,6 +55,7 @@ jobs:
         # Getting file named with .nupkg extension
         file=""
         cdir=`ls ./*.nupkg`
+        echo $cdir
         for eachfile in $cdir
         do
           file=$eachfile
