@@ -19,7 +19,7 @@ jobs:
       run: dotnet restore ./src/Downloader/Downloader.csproj
     - name: Build Downloader Project
       run: dotnet build ./src/Downloader/Downloader.csproj
-    - name: Install Downloader.Test Dependencies
+    - name: Push nuget package
       run: |
         # Grab some versioning information
         commithash=$(git rev-parse --short HEAD)
