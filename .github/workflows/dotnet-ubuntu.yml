@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core 3.1
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.x
     - name: Setup .NET Core 6.0
       uses: actions/setup-dotnet@v1
       with:
@@ -23,15 +19,7 @@ jobs:
       run: dotnet restore ./src/Downloader/Downloader.csproj
     - name: Build Downloader Project
       run: dotnet build ./src/Downloader/Downloader.csproj
-    - name: Install Downloader.DummyHttpServer Dependencies
-      run: dotnet restore ./src/Downloader.DummyHttpServer/Downloader.DummyHttpServer.csproj
-    - name: Build Downloader.DummyHttpServer Project
-      run: dotnet build ./src/Downloader.DummyHttpServer/Downloader.DummyHttpServer.csproj
     - name: Install Downloader.Test Dependencies
-      run: dotnet restore ./src/Downloader.Test/Downloader.Test.csproj
-    - name: Build Downloader.Test Project
-      run: dotnet build ./src/Downloader.Test/Downloader.Test.csproj
-    - name: Publish to GitHub packages
       run: |
         # Grab some versioning information
         commithash=$(git rev-parse --short HEAD)
