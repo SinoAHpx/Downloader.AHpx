@@ -29,3 +29,35 @@ jobs:
       run: dotnet build ./src/Downloader.Test/Downloader.Test.csproj
     - name: Test
       run: dotnet test ./src/Downloader.Test/Downloader.Test.csproj --no-build --verbosity normal
+    - name: Publish to GitHub packages
+      run: |
+        # Grab some versioning information
+        commithash=$(git rev-parse --short HEAD)
+        currtime=$(date +%s)
+        echo "commit hash is $commithash"
+        echo "time is $currtime"
+
+        # Enter project directory
+        cd src/Downloader
+
+        # Build package
+        dotnet restore
+        dotnet build
+
+        # Pack a nuget package with all the default config
+        dotnet pack
+
+        # Enter package output directory
+        cd bin/Debug
+
+        # Getting file named with .nupkg extension
+        file=""
+        cdir=`ls ./*.nupkg`
+        for eachfile in $cdir
+        do
+          file=$eachfile
+        done
+        
+        # Push it to source "nuget"
+        dotnet nuget add source --username SinoAHpx --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/SinoAHpx/index.json"
+        dotnet nuget push $file --api-key ${{ secrets.PAT  }} --source "github" --skip-duplicate
