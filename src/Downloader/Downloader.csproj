@@ -1,27 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1;net452;net6.0</TargetFrameworks>
+    <TargetFrameworks>net6.0</TargetFrameworks>
     <LangVersion>latestMajor</LangVersion>
-    <Version>2.3.5</Version>
+    <Version>1.0.0</Version>
     <Title>Downloader</Title>
     <Authors>AHpx</Authors>
     <Company>bezzad</Company>
     <Description>Fast and reliable multipart downloader with asynchronous progress events for .NET</Description>
-    <PackageProjectUrl>https://github.com/bezzad/Downloader</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/bezzad/Downloader</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/SinoAHpx/Downloader.AHpx</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SinoAHpx/Downloader.AHpx</RepositoryUrl>
     <PackageTags>download-manager, downloader, download-file, stream-downloader, multipart-download</PackageTags>
     <PackageReleaseNotes>* Fixed embbed PDB file to nuget package</PackageReleaseNotes>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>Downloader.snk</AssemblyOriginatorKeyFile>
-    <Copyright>Copyright (C) 2019-2022 Behzad Khosravifar</Copyright>
+    <Copyright>Copyright 2022 AHpx</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageIcon>downloader.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
-    <AssemblyVersion>2.3.5</AssemblyVersion>
-    <FileVersion>2.3.5</FileVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <DebugType>embedded</DebugType>
     <PackageId>Downloader.AHpx</PackageId>
